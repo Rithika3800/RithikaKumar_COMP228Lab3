@@ -22,23 +22,25 @@ public class ProcessMortgage
             String customerName = input.nextLine();
 
             System.out.print("Enter the Mortgage Amount: ");
-            double amount = input.nextDouble();
+            double amountofmortgage = input.nextDouble();
 
             System.out.print("Enter the term: ");
             int term = input.nextInt();
             input.nextLine();
 
-            System.out.print("1 Business or 2 Personal mortgage");
+            System.out.print("1 Business or 2 Personal mortgage: ");
             int Type = input.nextInt();
             input.nextLine();
 
             if (Type == 1)
             {
-                mort[r] = new BusinessMortgage(mortgageNumber, customerName, amount, primeRate, term);
+                mort[r] = new BusinessMortgage(mortgageNumber, customerName, amountofmortgage, primeRate, term);
             } else if (Type == 2)
             {
-                mort[r] = new PersonalMortgage(mortgageNumber, customerName, amount, primeRate, term);
-            } else {
+                mort[r] = new PersonalMortgage(mortgageNumber, customerName, amountofmortgage, primeRate, term);
+            }
+            else
+            {
                 System.out.println("Invalid.");
                 r--;
             }

@@ -2,7 +2,8 @@ package Exercise3;
 
 import java.util.Scanner;
 
-interface MortgageConstants {
+interface MortgageConstants
+{
     int Short_term = 1;
     int medium_term = 3;
     int long_term = 5;
@@ -10,7 +11,8 @@ interface MortgageConstants {
     String Bank_name = "CityToronto bank";
 }
 
-abstract class Mortgage implements MortgageConstants {
+abstract class Mortgage implements MortgageConstants
+{
     public String mortgageNumber;
     public String customername;
     public double amountofmortgage;
@@ -33,12 +35,9 @@ abstract class Mortgage implements MortgageConstants {
         if (term == Short_term || term == medium_term || term == long_term)
         {
             this.term = term;
-        }
-        else
-        {
+        } else {
             this.term = Short_term;
         }
-
     }
 
     public abstract void setInterestRate(double primeRate);
@@ -51,32 +50,28 @@ abstract class Mortgage implements MortgageConstants {
                         "\nAmount of Mortgage: $%.2f\n" +
                         "Interest Rate: %.2f%%" +
                         "\nTerm: %d years\n",
-                mortgageNumber, customername, amountofmortgage, interestRate * 100, term
+                mortgageNumber, customername, amountofmortgage, interestRate, term
         );
     }
 }
 
 class BusinessMortgage extends Mortgage
 {
-    public BusinessMortgage(String mortgageNumber, String customerName, double amount, double primeRate, int term) {
-        super(mortgageNumber, customerName, amount, primeRate + 0.01, term);
+    public BusinessMortgage(String mortgageNumber, String customerName, double amountofmortgage, double primeRate, int term) {
+        super(mortgageNumber, customerName, amountofmortgage, primeRate + 0.1, term);
     }
 
-    public void setInterestRate(double primeRate)
-    {
+    public void setInterestRate(double primeRate) {
         this.interestRate = primeRate + 0.1;
     }
 }
 
-class PersonalMortgage extends Mortgage
-{
-    public PersonalMortgage(String mortgageNumber, String customerName, double amount, double primeRate, int term) {
-        super(mortgageNumber, customerName, amount, primeRate + 0.02, term);
+class PersonalMortgage extends Mortgage {
+    public PersonalMortgage(String mortgageNumber, String customerName, double amountofmortgage, double primeRate, int term) {
+        super(mortgageNumber, customerName, amountofmortgage, primeRate + 0.2, term);
     }
 
-    public void setInterestRate(double primeRate)
-    {
+    public void setInterestRate(double primeRate) {
         this.interestRate = primeRate + 0.2;
     }
 }
-
